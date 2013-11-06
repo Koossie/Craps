@@ -2,8 +2,8 @@
 
 #include "ConcreteStates.hpp"
 #include "Event.hpp"
-#include "C:\eclipse\boost_1_54_0\boost\thread.hpp"
-#include "C:\eclipse\boost_1_54_0\boost\chrono.hpp"
+#include <boost\thread.hpp>
+#include <boost\chrono.hpp>
 
 
 void GameContext::play()

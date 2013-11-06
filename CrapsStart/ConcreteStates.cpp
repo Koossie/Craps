@@ -122,7 +122,7 @@ void PlayState::handleEvent(const Event& anEvent, GameContext& aGameContext) {
 	std::cout << __PRETTY_FUNCTION__ << std::endl;
 
 	switch(aGameContext.getScore()) {
-	case getScore():	{
+	case 1: { //getScore():	{
 		AbstractState *state(new WinState);
 		aGameContext.setCurrentState(state);
 		break;
@@ -134,6 +134,7 @@ void PlayState::handleEvent(const Event& anEvent, GameContext& aGameContext) {
 	}
 	default: {
 		break;
+	}
 	}
 }
 
