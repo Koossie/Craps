@@ -119,8 +119,22 @@ void LoseState::handleEvent(	const Event& anEvent,
 }
 
 void PlayState::handleEvent(const Event& anEvent, GameContext& aGameContext) {
-	std::cout << "Roll again!" << std::endl;
-	aGameContext.setCurrentState(nullptr);
+	std::cout << __PRETTY_FUNCTION__ << std::endl;
+
+	switch(aGameContext.getScore()) {
+	case getScore():	{
+		AbstractState *state(new WinState);
+		aGameContext.setCurrentState(state);
+		break;
+	}
+	case 7: {
+		AbstractState *state(new LoseState);
+		aGameContext.setCurrentState(state);
+		break;
+	}
+	default: {
+		break;
+	}
 }
 
 //void State4::handleEvent(	const Event& anEvent,
