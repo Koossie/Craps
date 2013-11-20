@@ -11,15 +11,17 @@
 class GameContext : public Context
 {
 	public:
-		GameContext(const std::string& aTableName = "One") : tableName(aTableName){}
+		GameContext(const std::string& aTableName = "One");
 		void play();
 
 		std::string getTableName() const {return tableName;}
-		std::pair<Dice,Dice> getDices()
-				{
+		std::pair<Dice,Dice> getDices() {
 			       return std::make_pair(dice1,dice2);
 				}
 		unsigned char getScore() const {return dice1.getValue() + dice2.getValue();}
+		int getInitialThrow() const;
+		void setInitialThrow(const int aRoll);
+
 	protected:
 		void throwDices();
 
@@ -27,6 +29,7 @@ class GameContext : public Context
 		std::string tableName;
 		Dice dice1;
 		Dice dice2;
+		int initialThrow;
 };
 
 #endif // GAMECONTEXT_HPP_

@@ -5,6 +5,7 @@
 #include <boost\thread.hpp>
 #include <boost\chrono.hpp>
 
+GameContext::GameContext(const std::string& aTableName) : tableName(aTableName), initialThrow(0){}
 
 void GameContext::play()
 {
@@ -40,4 +41,13 @@ void GameContext::throwDices()
 	dice2.setValue( std::rand() % 6 + 1);
     std::cout << "Dice Rolled: " << dice1 <<  " " << dice2 << std::endl;
 
+}
+
+void GameContext::setInitialThrow(int aRoll) {
+	initialThrow = aRoll;
+}
+
+
+int GameContext::getInitialThrow() const {
+	return initialThrow;
 }
