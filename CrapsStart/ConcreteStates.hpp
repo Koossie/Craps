@@ -36,7 +36,12 @@ class LoseState : public AbstractGameState
 
 class PlayState : public AbstractGameState {
 public:
+	PlayState(const int aRoll);
 	virtual void handleEvent (const Event& anEvent, GameContext& aGameContext);
+	const int getInitialThrow();
+
+private:
+	int initialThrow;
 };
 //class State4 : public AbstractGameState
 //{

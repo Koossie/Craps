@@ -5,7 +5,7 @@
 #include <boost\thread.hpp>
 #include <boost\chrono.hpp>
 
-GameContext::GameContext(const std::string& aTableName) : tableName(aTableName), initialThrow(0){}
+GameContext::GameContext(const std::string& aTableName) : tableName(aTableName) {}
 
 void GameContext::play()
 {
@@ -15,12 +15,13 @@ void GameContext::play()
 		{
 			std::cout << "Starting New Game" << std::endl;
 			currentState = new StartState;
-			while(currentState)
-			{
-				throwDices();
-				currentState->handleEvent( Event(DiceRolled),*this);
-			}
 		}
+		while(currentState)
+					{
+						throwDices();
+						currentState->handleEvent( Event(DiceRolled),*this);
+					}
+
 #if (BOOST_VERSION < 105000)
 		boost::this_thread::sleep(boost::posix_time::milliseconds(1000));
 #else
@@ -41,13 +42,4 @@ void GameContext::throwDices()
 	dice2.setValue( std::rand() % 6 + 1);
     std::cout << "Dice Rolled: " << dice1 <<  " " << dice2 << std::endl;
 
-}
-
-void GameContext::setInitialThrow(int aRoll) {
-	initialThrow = aRoll;
-}
-
-
-int GameContext::getInitialThrow() const {
-	return initialThrow;
 }

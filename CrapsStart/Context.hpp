@@ -10,6 +10,7 @@
 class Context
 {
 	public:
+		Context();
 		virtual ~Context();
 
 		AbstractState *getCurrentState();

@@ -46,8 +46,7 @@ void StartState::handleEvent(	const Event& anEvent,
 			case 10:
 			case 11:
 			{
-				AbstractState *state(new PlayState);
-				aGameContext.setInitialThrow(aGameContext.getScore());
+				AbstractState *state(new PlayState(aGameContext.getScore()));
 				aGameContext.setCurrentState(state);
 				break;
 			}
@@ -122,15 +121,13 @@ void LoseState::handleEvent(	const Event& anEvent,
 void PlayState::handleEvent(const Event& anEvent, GameContext& aGameContext) {
 	std::cout << __PRETTY_FUNCTION__ << std::endl;
 
-	if (aGameContext.getScore() == aGameContext.getInitialThrow()) {
+	if (aGameContext.getScore() == getInitialThrow()) {
 		AbstractState *state(new WinState);
 		aGameContext.setCurrentState(state);
-		std::cout << "WINST!" << std::endl;
 	}
 	else if (aGameContext.getScore() == 7) {
 		AbstractState *state(new LoseState);
 		aGameContext.setCurrentState(state);
-		std::cout << "Faal!" << std::endl;
 	}
 	else {
 
@@ -151,6 +148,11 @@ void PlayState::handleEvent(const Event& anEvent, GameContext& aGameContext) {
 	}*/
 }
 
+PlayState::PlayState(const int aRoll) : initialThrow(aRoll) {}
+
+const int PlayState::getInitialThrow() {
+	return initialThrow;
+}
 //void State4::handleEvent(	const Event& anEvent,
 //                         	GameContext& aGameContext)
 //{
