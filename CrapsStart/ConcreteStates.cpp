@@ -107,14 +107,15 @@ void StartState::handleEvent(	const Event& anEvent,
 void WinState::handleEvent( const Event& anEvent,
                             GameContext& aGameContext)
 {
-	std::cout << "We won..." << std::endl;
+	std::cout << "Table " << aGameContext.getTableName() << " won..." << std::endl;
 	aGameContext.setCurrentState(nullptr);
 }
 
 void LoseState::handleEvent(	const Event& anEvent,
                             	GameContext& aGameContext)
 {
-	std::cout << "We lost..." << std::endl;
+	std::cout << "Table " << aGameContext.getTableName() << " lost..." << std::endl;
+	//Logger::getInstance().log("Table " + aGameContext.getTableName() + " lost..."");
 	aGameContext.setCurrentState(nullptr);
 }
 
@@ -132,20 +133,6 @@ void PlayState::handleEvent(const Event& anEvent, GameContext& aGameContext) {
 	else {
 
 	}
-	/*switch(aGameContext.getScore()) {
-	case aGameContext.getInitialThrow(): {
-		AbstractState *state(new WinState);
-		aGameContext.setCurrentState(state);
-		break;
-	}
-	case 7: {
-		AbstractState *state(new LoseState);
-		aGameContext.setCurrentState(state);
-		break;
-	}
-	default: {
-		break;
-	}*/
 }
 
 PlayState::PlayState(const int aRoll) : initialThrow(aRoll) {}
@@ -153,192 +140,3 @@ PlayState::PlayState(const int aRoll) : initialThrow(aRoll) {}
 const int PlayState::getInitialThrow() {
 	return initialThrow;
 }
-//void State4::handleEvent(	const Event& anEvent,
-//                         	GameContext& aGameContext)
-//{
-//	std::cout << __PRETTY_FUNCTION__ << std::endl;
-//	std::cout << "getType: " << anEvent.getType() << std::endl;
-//	switch (aGameContext.getScore())
-//	{
-//		case 4:
-//		{
-//			AbstractState *state(new WinState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//			break;
-//		}
-//		case 7:
-//		{
-//			AbstractState *state(new LoseState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//		}
-//		default:
-//		{
-//			// Stay in the current state and do nothing...
-//			break;
-//		}
-//	}
-//}
-//
-//void State5::handleEvent(	const Event& anEvent,
-//                         	GameContext& aGameContext)
-//{
-//	std::cout << __PRETTY_FUNCTION__ << std::endl;
-//	switch (aGameContext.getScore())
-//	{
-//		case 5:
-//		{
-//			AbstractState *state(new WinState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//			break;
-//		}
-//		case 7:
-//		{
-//			AbstractState *state(new LoseState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//		}
-//		default:
-//		{
-//			// Stay in the current state and do nothing...
-//			break;
-//		}
-//	}
-//}
-//
-//void State6::handleEvent(	const Event& anEvent,
-//                         	GameContext& aGameContext)
-//{
-//	std::cout << __PRETTY_FUNCTION__ << std::endl;
-//	switch (aGameContext.getScore())
-//	{
-//		case 6:
-//		{
-//			AbstractState *state(new WinState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//			break;
-//		}
-//		case 7:
-//		{
-//			AbstractState *state(new LoseState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//		}
-//		default:
-//		{
-//			// Stay in the current state and do nothing...
-//			break;
-//		}
-//	}
-//}
-//
-//void State8::handleEvent(	const Event& anEvent,
-//                         	GameContext& aGameContext)
-//{
-//	std::cout << __PRETTY_FUNCTION__ << std::endl;
-//	switch (aGameContext.getScore())
-//	{
-//		case 8:
-//		{
-//			AbstractState *state(new WinState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//			break;
-//		}
-//		case 7:
-//		{
-//			AbstractState *state(new LoseState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//		}
-//		default:
-//		{
-//			// Stay in the current state and do nothing...
-//			break;
-//		}
-//	}
-//}
-//
-//void State9::handleEvent(	const Event& anEvent,
-//                         	GameContext& aGameContext)
-//{
-//	std::cout << __PRETTY_FUNCTION__ << std::endl;
-//	switch (aGameContext.getScore())
-//	{
-//		case 9:
-//		{
-//			AbstractState *state(new WinState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//			break;
-//		}
-//		case 7:
-//		{
-//			AbstractState *state(new LoseState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//		}
-//		default:
-//		{
-//			// Stay in the current state and do nothing...
-//			break;
-//		}
-//	}
-//}
-//
-//void State10::handleEvent(	const Event& anEvent,
-//                          	GameContext& aGameContext)
-//{
-//	std::cout << __PRETTY_FUNCTION__ << std::endl;
-//	switch (aGameContext.getScore())
-//	{
-//		case 10:
-//		{
-//			AbstractState *state(new WinState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//			break;
-//		}
-//		case 7:
-//		{
-//			AbstractState *state(new LoseState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//		}
-//		default:
-//		{
-//			// Stay in the current state and do nothing...
-//			break;
-//		}
-//	}
-//}
-//
-//void State11::handleEvent(	const Event& anEvent,
-//                          	GameContext& aGameContext)
-//{
-//	std::cout << __PRETTY_FUNCTION__ << std::endl;
-//	switch (aGameContext.getScore())
-//	{
-//		case 11:
-//		{
-//			AbstractState *state(new WinState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//			break;
-//		}
-//		case 7:
-//		{
-//			AbstractState *state(new LoseState);
-//			aGameContext.setCurrentState(state);
-//			break;
-//		}
-//		default:
-//		{
-//			// Stay in the current state and do nothing...
-//			break;
-//		}
-//	}
-//}

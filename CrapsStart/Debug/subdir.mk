@@ -8,6 +8,7 @@ CPP_SRCS += \
 ../Context.cpp \
 ../Dice.cpp \
 ../GameContext.cpp \
+../Logger.cpp \
 ../Main.cpp 
 
 OBJS += \
@@ -15,6 +16,7 @@ OBJS += \
 ./Context.o \
 ./Dice.o \
 ./GameContext.o \
+./Logger.o \
 ./Main.o 
 
 CPP_DEPS += \
@@ -22,6 +24,7 @@ CPP_DEPS += \
 ./Context.d \
 ./Dice.d \
 ./GameContext.d \
+./Logger.d \
 ./Main.d 
 
 

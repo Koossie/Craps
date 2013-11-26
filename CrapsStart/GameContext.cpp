@@ -1,5 +1,4 @@
 #include "GameContext.hpp"
-
 #include "ConcreteStates.hpp"
 #include "Event.hpp"
 #include <boost\thread.hpp>
