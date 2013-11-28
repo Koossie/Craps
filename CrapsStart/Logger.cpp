@@ -21,3 +21,11 @@ Logger& Logger::getInstance() {
 void Logger::log( const std::string& tekst) {
 	std::cout << tekst << std::endl;
 }
+
+void Logger::startOutput() {
+	lock.lock();
+}
+
+void Logger::endOutput() {
+	lock.unlock();
+}

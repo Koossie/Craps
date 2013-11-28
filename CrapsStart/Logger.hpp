@@ -8,13 +8,16 @@
 #ifndef LOGGER_HPP_
 #define LOGGER_HPP_
 
-#include<string>
+#include <string>
+#include <boost/thread/mutex.hpp>
+#include <memory>
 
-class Logger
-{
+class Logger {
     public:
         void log(const std::string& logstring);
         static Logger& getInstance();
+        void startOutput();
+        void endOutput();
     private:
  	   Logger();              // Constructor? (the {} brackets) are needed here.
         // Dont forget to declare these two. You want to make sure they
@@ -22,6 +25,7 @@ class Logger
         // your singleton appearing.
  	   Logger(Logger const&);         // Make copycon private
         void operator=(Logger const&); // Don't implement
+        boost::mutex lock;
 };
 
 #endif /* LOGGER_HPP_ */

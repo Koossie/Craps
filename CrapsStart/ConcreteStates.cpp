@@ -109,7 +109,9 @@ void WinState::handleEvent( const Event& anEvent,
                             GameContext& aGameContext)
 {
 	//std::cout << "Table " << aGameContext.getTableName() << " won..." << std::endl;
+	Logger::getInstance().startOutput();
 	Logger::getInstance().log("Table " + aGameContext.getTableName() + " won!!!");
+	Logger::getInstance().endOutput();
 	aGameContext.setCurrentState(nullptr);
 }
 
@@ -117,7 +119,10 @@ void LoseState::handleEvent(	const Event& anEvent,
                             	GameContext& aGameContext)
 {
 	//std::cout << "Table " << aGameContext.getTableName() << " lost..." << std::endl;
+
+	Logger::getInstance().startOutput();
 	Logger::getInstance().log("Table " + aGameContext.getTableName() + " lost...");
+	Logger::getInstance().endOutput();
 	aGameContext.setCurrentState(nullptr);
 }
 
