@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include "Event.hpp"
 #include "GameContext.hpp"
+#include "Logger.hpp"
 
 void AbstractGameState::handleEvent( const Event& anEvent, Context& aContext)
 {
@@ -107,15 +108,16 @@ void StartState::handleEvent(	const Event& anEvent,
 void WinState::handleEvent( const Event& anEvent,
                             GameContext& aGameContext)
 {
-	std::cout << "Table " << aGameContext.getTableName() << " won..." << std::endl;
+	//std::cout << "Table " << aGameContext.getTableName() << " won..." << std::endl;
+	Logger::getInstance().log("Table " + aGameContext.getTableName() + " won!!!");
 	aGameContext.setCurrentState(nullptr);
 }
 
 void LoseState::handleEvent(	const Event& anEvent,
                             	GameContext& aGameContext)
 {
-	std::cout << "Table " << aGameContext.getTableName() << " lost..." << std::endl;
-	//Logger::getInstance().log("Table " + aGameContext.getTableName() + " lost..."");
+	//std::cout << "Table " << aGameContext.getTableName() << " lost..." << std::endl;
+	Logger::getInstance().log("Table " + aGameContext.getTableName() + " lost...");
 	aGameContext.setCurrentState(nullptr);
 }
 
